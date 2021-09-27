@@ -1,15 +1,13 @@
-const http2 = require('http2');
-const fs = require('fs');
+const http = require('http');
 
-const options = {
-    key: fs.readFileSync('./server.key'),
-    cert: fs.readFileSync('./server.crt'),
-    allowHTTP1: true
-}
 
-const server = http2.createSecureServer(options, (req, res) => {
+
+
+const server = http.createServer((req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.end('ok');
 });
 
 server.listen(8000);
+
+//https://ec2-3-127-22-131.eu-central-1.compute.amazonaws.com/
